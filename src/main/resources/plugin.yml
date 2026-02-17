@@ -1,0 +1,6 @@
+name: MultiLibExample
+version: '1.0.0'
+main: dev.kuwa.MultiLibExample.MultiLibExample
+api-version: '1.20'
+authors: [ kuwa ]
+description: MultiLibを利用したPaperMC Pluginの実装例
