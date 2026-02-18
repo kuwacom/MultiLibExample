@@ -68,8 +68,30 @@ class MLECommand : BaseCommand() {
         player.sendMessage("Use /mle global < set | get | list >")
     }
 
+
+    @Subcommand("notify start")
+    @Syntax("<試合名>")
+    fun onNotifyMatchStart(player: Player, @Name("試合名") matchName: String) {
+        // 他サーバーに通知
+        MultiLib.notify("siege:match_start", matchName)
+        player.sendMessage("Match start notified: $matchName")
+    }
+
+    // /siege notify end <試合名>
+    @Subcommand("notify end")
+    @Syntax("<試合名>")
+    fun onNotifyMatchEnd(player: Player, @Name("試合名") matchName: String) {
+        MultiLib.notify("siege:match_end", matchName)
+        player.sendMessage("Match end notified: $matchName")
+    }
+    @Subcommand("notify")
+    fun onNotifyHelp(player: Player) {
+        player.sendMessage("Use /siege notify < start | end >")
+    }
+
+
     @Default
     fun help(player: Player) {
-        player.sendMessage("Use /mle < localcheck | getdata | setdata | global set, get, list >")
+        player.sendMessage("Use /siege < localcheck | getdata | setdata | global set, get, list | notify start, end >")
     }
 }
